@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 // import Header from '../components/common/Header'
 import dynamic from 'next/dynamic'
 import { GetStaticProps } from 'next'
+import { MainLayout } from '../components/layout'
 
 export interface IAppProps {}
 
@@ -10,10 +11,10 @@ const Header = dynamic(() => import('../components/common/Header'), {
   ssr: false,
 })
 
-export default function App(props: IAppProps) {
+export default function About(props: IAppProps) {
   const router = useRouter()
   const [postList, setPostList] = useState([])
-  const page = router.query?.page
+  const page = router.query?.page || 1
 
   useEffect(() => {
     if (!page)
@@ -66,6 +67,8 @@ export default function App(props: IAppProps) {
     </div>
   )
 }
+
+About.Layout = MainLayout
 
 export async function getStaticProps() {
   console.log('Get Static Props')
