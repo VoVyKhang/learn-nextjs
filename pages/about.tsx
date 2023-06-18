@@ -55,7 +55,11 @@ export default function App(props: IAppProps) {
       <h2>About Page</h2>
       <ul>
         {postList.map((post: any) => {
-          return <li key={post.id}>{post.title}</li>
+          return (
+            <li key={post.id}>
+              {post.title} - {post.id}
+            </li>
+          )
         })}
       </ul>
       <button onClick={handleNextPage}>Next Page</button>

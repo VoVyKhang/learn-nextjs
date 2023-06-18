@@ -15,6 +15,7 @@ export default function GetListPost({ posts }: IGetListPostProps) {
           return (
             <li key={post.id}>
               <Link href={`/posts/${post.id}`}>{post.title}</Link>
+              <p>{post.id}</p>
             </li>
           )
         })}
