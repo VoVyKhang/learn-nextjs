@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 // import Header from '../components/common/Header'
 import dynamic from 'next/dynamic'
 import { GetStaticProps } from 'next'
-import { MainLayout } from '../components/layout'
+import { AdminLayout, MainLayout } from '../components/layout'
 
 export interface IAppProps {}
 
@@ -28,8 +28,6 @@ export default function About(props: IAppProps) {
       setPostList(data.data)
     })()
   }, [page])
-
-  console.log('Query: ', router.query)
 
   const handleNextPage = () => {
     router.push(
@@ -68,7 +66,7 @@ export default function About(props: IAppProps) {
   )
 }
 
-About.Layout = MainLayout
+About.Layout = AdminLayout
 
 export async function getStaticProps() {
   console.log('Get Static Props')
